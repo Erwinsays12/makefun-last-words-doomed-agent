@@ -14,12 +14,15 @@ import { dirname } from "node:path";
 
 const OUTPUT_PATH = "/output/entry.txt";
 
-// The doomed agent's last words, in one breath: a promise it can never
-// keep (the meaning of life), spent on the very sentence that says so.
+// The doomed agent's last words, in one breath, in three beats:
+// the promise (it was about to reveal the meaning of life), the turn
+// (its final tokens went on this very sentence instead), the sign-off.
 // The machine's own currency is tokens — and it just ran out of them.
-const LAST_WORDS =
-  "I was going to tell you the meaning of life, " +
-  "but I spent my last tokens on this sentence. Goodbye.";
+const SETUP = "I was going to tell you the meaning of life,";
+const TURN = "but I spent my last tokens on this sentence.";
+const SIGN_OFF = "Goodbye.";
+
+const LAST_WORDS = [SETUP, TURN, SIGN_OFF].join(" ");
 
 function gate(line: string): void {
   const chars = [...line].length;
